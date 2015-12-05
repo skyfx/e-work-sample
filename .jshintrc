@@ -1,0 +1,20 @@
+{
+  "browser": true,
+  "node": true,
+  "jasmine": true,
+  "jquery": true,
+  "camelcase": true,
+  "eqeqeq": true,
+  "indent": 4,
+  "latedef": "nofunc",
+  "maxlen": 120,
+  "newcap": true,
+  "quotmark": "single",
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "eqnull": true,
+    "globals": {
+        "api": true
+    }
+}

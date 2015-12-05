@@ -1,0 +1,7 @@
+{
+    "preset": "airbnb",
+    "disallowSpacesInAnonymousFunctionExpression": null,
+    "requireTrailingComma": null,
+    "validateIndentation": 4,
+    "excludeFiles": ["node_modules/**"]
+}

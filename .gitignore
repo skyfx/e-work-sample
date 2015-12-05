@@ -1,13 +1,5 @@
 *.iml
-*.ipr
-*~
-.DS_Store
-.classpath
-.idea
-.project
-.settings
-build
-coverage
 node_modules
-npm-debug.log
 target
+src/main/resources/static
+.tmp
