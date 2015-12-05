@@ -1,4 +1,10 @@
 language: java
 jdk:
-  - oraclejdk8
-  
+- oraclejdk8
+deploy:
+  provider: heroku
+  api_key:
+    secure: elNC/4mf0cjoQ6/8Z2lMi+JkJYGTG9twgYABs+WcGnWWXFpsCjJ6eCxrtTnCXE9Q+J6zSKUci3i4F/EG40TeNfhxXtGAvg2f6u8W4Dsv1ElXbK4E6pwI7pMvIw2Uq2y6SJKvKE8uE/faKANSYB5tqUlvthwMwmQJn/0X7gJJ4/KKOFIoZpNteih7W4Lb4FGQVAuHIjkUCi1MbPAvq2ka6ue8sYOnn0D0c0EBpX+qRF0B6dAqWt/KmcDKvc2LAlmqnoyMVW7m9+d4lWLW3lm39Cn5pyuqFtZ4wOtc9LoLv3vn4RsK9PFi+yYA9cNFsDjt/rpL4VTZKgn+JKC1YGFP9bJkfv4Vqjct1LdA+Z1mILOIRLnUvzz79k0HuzdJOIVfGSpuIp4om9WPWU0E6w3Mo64poK2H4ZoUrWbdlRiVYtHiPIZvC5hDwilhk7J12ElKqkVTox7aoLX1uZ+ebaTVBX3E4rB5lgCH6onBpSxqMLZdjVPNFUWm46T+NpqS/vyxN/DG7+gXf2rMff1X/nAcjVaV/pqQ+6Iq/1Z9+XhKy+PzAeiTY4Fr586wIGyTSkndIGNMsNdbfivp9j+F8uhgTD64QVsdqGf8XMU28Uv5VPlRqZ6+pKdeEuTHWz8tF/oBp/O09fVpOdfIHLWX8GMMjVMIG893LH17QC1Y03f0Sj8=
+  app: e-work-sample
+  on:
+    repo: skyfx/e-work-sample
