@@ -1,6 +1,8 @@
 E-company work sample
 ====================
 
+[![Build Status](https://travis-ci.org/skyfx/e-work-sample.svg?branch=master)](https://travis-ci.org/skyfx/e-work-sample)
+
 This application provides the following functionality:
 
   * [ ] Provides a web page to add a text with a title without formatting
