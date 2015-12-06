@@ -3,7 +3,7 @@ module.exports = function karmaConfig(config) {
     config.set({
 
         basePath: '',
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'browserify'],
         files: [
             './node_modules/phantomjs-polyfill/bind-polyfill.js',
             './src/main/front-end/scripts/**/*.js'
@@ -11,7 +11,12 @@ module.exports = function karmaConfig(config) {
         exclude: [
             './src/main/front-end/scripts/main.js'
         ],
-        preprocessors: {},
+        preprocessors: {
+            './src/main/front-end/scripts/**/*.js': ['browserify']
+        },
+        browserify: {
+            debug: true
+        },
         reporters: ['progress'],
         port: 9876,
         colors: true,

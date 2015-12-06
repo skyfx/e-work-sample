@@ -7,10 +7,12 @@ var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var KarmaServer = require('karma').Server;
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var mold = require('mold-source-map');
 
 gulp.task('jshint', function jshint() {
     return gulp.src('src/main/front-end/scripts/**/*.js')
-        .pipe(reload({stream: true, once: true}))
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish'))
         .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
@@ -37,6 +39,17 @@ gulp.task('copy', function copy() {
         .pipe($.size({title: 'copy'}));
 });
 
+gulp.task('browserify', function browserifyMe() {
+
+    return browserify('./src/main/front-end/scripts/main.js', {debug: true})
+        .bundle()
+        .pipe(mold.transformSourcesRelativeTo('./'))
+        .pipe(source('scripts/bundle.js'))
+        .pipe(gulp.dest('.tmp'))
+        .pipe(reload({stream: true}))
+        .pipe($.size({title: 'browserify'}));
+});
+
 gulp.task('styles', function styles() {
 
     return gulp.src('src/main/front-end/styles/*.css')
@@ -59,7 +72,7 @@ gulp.task('html', function html() {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'src/main/resources/static/*'], {dot: true}));
 
-gulp.task('serve', ['styles'], function serve() {
+gulp.task('serve', ['browserify', 'styles'], function serve() {
     browserSync({
         notify: false,
         logPrefix: '[BROWSER-SYNC]',
@@ -69,7 +82,7 @@ gulp.task('serve', ['styles'], function serve() {
 
     gulp.watch(['src/main/front-end/**/*.html'], reload);
     gulp.watch(['src/main/front-end/styles/**/*.css'], ['styles', reload]);
-    gulp.watch(['src/main/front-end/scripts/**/*.js'], ['jshint']);
+    gulp.watch(['src/main/front-end/scripts/**/*.js'], ['jshint', 'browserify', reload]);
 });
 
 gulp.task('serve:dist', ['default'], function serveDist() {
@@ -83,7 +96,7 @@ gulp.task('serve:dist', ['default'], function serveDist() {
 
 gulp.task('default', ['clean'], function defaultTask(cb) {
     runSequence(
-        'styles',
+        ['browserify', 'styles'],
         ['jshint', 'html', 'copy', 'test'],
         cb);
 });
