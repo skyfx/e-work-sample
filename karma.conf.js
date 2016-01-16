@@ -22,7 +22,7 @@ module.exports = function karmaConfig(config) {
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
-        browsers: ['PhantomJS', 'Chrome'],
+        browsers: ['PhantomJS'],
         singleRun: false
     });
 };

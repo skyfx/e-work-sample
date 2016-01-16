@@ -1,8 +1,8 @@
 'use strict';
-var todoVM = require('../view-model/toDoVM');
+var searchVM = require('../view-model/searchVM');
 
 var controller = function() {
-    todoVM.init();
+    searchVM.init();
 };
 
 module.exports = controller;

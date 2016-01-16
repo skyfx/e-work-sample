@@ -1,5 +1,5 @@
 'use strict';
 var m = require('mithril');
-var todoComponent = require('./component/todoComponent');
+var searchComponent = require('./component/searchComponent');
 
-m.mount(document.body, todoComponent);
+m.mount(document.body, searchComponent);
