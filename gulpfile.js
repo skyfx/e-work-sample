@@ -46,7 +46,7 @@ gulp.task('browserify', function browserifyMe(done) {
 
     return browserify('./src/main/front-end/scripts/main.js', {debug: true})
         .bundle()
-        .on('error', function (err) {
+        .on('error', function(err) {
             console.log(err.message);
             if (inDevelop) {
                 done();
