@@ -39,12 +39,12 @@ gulp.task('copy', function copy() {
     ], {
         dot: true
     }).pipe(gulp.dest('src/main/resources/static'))
-        .pipe($.size({title: 'copy'}));
+        .pipe($.size({ title: 'copy' }));
 });
 
 gulp.task('browserify', function browserifyMe(done) {
 
-    return browserify('./src/main/front-end/scripts/main.js', {debug: true})
+    return browserify('./src/main/front-end/scripts/main.js', { debug: true })
         .bundle()
         .on('error', function(err) {
             console.log(err.message);
@@ -57,31 +57,31 @@ gulp.task('browserify', function browserifyMe(done) {
         .pipe(mold.transformSourcesRelativeTo('./'))
         .pipe(source('scripts/bundle.js'))
         .pipe(gulp.dest('.tmp'))
-        .pipe(reload({stream: true}))
-        .pipe($.size({title: 'browserify'}));
+        .pipe(reload({ stream: true }))
+        .pipe($.size({ title: 'browserify' }));
 });
 
 gulp.task('styles', function styles() {
 
     return gulp.src('src/main/front-end/styles/*.css')
-        .pipe($.changed('.tmp/styles', {extension: '.css'}))
+        .pipe($.changed('.tmp/styles', { extension: '.css' }))
         .pipe(gulp.dest('.tmp/styles'))
         .pipe($.if('*.css', $.csso()))
         .pipe(gulp.dest('src/main/resources/static/styles'))
-        .pipe($.size({title: 'styles'}));
+        .pipe($.size({ title: 'styles' }));
 });
 
 gulp.task('html', function html() {
 
     return gulp.src('src/main/front-end/**/*.html')
-        .pipe($.useref({searchPath: '{.tmp,src/main/front-end}'}))
+        .pipe($.useref({ searchPath: '{.tmp,src/main/front-end}' }))
         .pipe($.if('*.js', $.uglify()))
-        .pipe($.if('*.html', $.minifyHtml()))
+        .pipe($.if('*.html', $.htmlmin()))
         .pipe(gulp.dest('src/main/resources/static'))
-        .pipe($.size({title: 'html'}));
+        .pipe($.size({ title: 'html' }));
 });
 
-gulp.task('clean', del.bind(null, ['.tmp', 'src/main/resources/static/*'], {dot: true}));
+gulp.task('clean', del.bind(null, ['.tmp', 'src/main/resources/static/*'], { dot: true }));
 
 gulp.task('serve', ['browserify', 'styles'], function serve() {
 
