@@ -1,4 +1,5 @@
 'use strict';
-var hello = require('./hello');
+var m = require('mithril');
+var todoComponent = require('./component/todoComponent');
 
-hello();
+m.mount(document.body, todoComponent);
