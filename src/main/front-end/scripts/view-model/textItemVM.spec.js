@@ -1,4 +1,6 @@
 'use strict';
+var TextItemList = require('../model/TextItemList');
+
 describe('textItemVM', function() {
 
     var vm = require('./textItemVM');
@@ -19,7 +21,7 @@ describe('textItemVM', function() {
 
         beforeEach(function() {
             vm.resetNewItem();
-            vm.results.length(0);
+            vm.results = new TextItemList();
         });
 
         it('should add', function() {
