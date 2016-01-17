@@ -1,6 +1,6 @@
 'use strict';
 var m = require('mithril');
-var todoVM = require('../view-model/searchVM');
+var textItemVM = require('../view-model/textItemVM');
 
 function view() {
 
@@ -8,18 +8,18 @@ function view() {
         m('h1', 'My texts'),
         searchBox(),
         m('ul', [
-            todoVM.results.map(function(text) {
+            textItemVM.results.map(function(text) {
                 return m('li', text.title());
             })
         ]),
-        m('button', { onclick: todoVM.add }, 'Add')
+        m('a[href=\'/add\']', { config: m.route }, 'Add')
     ]);
 }
 
 function searchBox() {
     return m('input', {
-        onchange: m.withAttr('value', todoVM.search),
-        value: todoVM.searchText(),
+        onchange: m.withAttr('value', textItemVM.searchText),
+        value: textItemVM.searchText(),
         type: 'search',
         placeholder: 'Search'
     });

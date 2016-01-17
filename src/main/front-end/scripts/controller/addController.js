@@ -2,7 +2,7 @@
 var textItemVM = require('../view-model/textItemVM');
 
 var controller = function() {
-    textItemVM.init();
+    textItemVM.resetNewItem();
 };
 
 module.exports = controller;
