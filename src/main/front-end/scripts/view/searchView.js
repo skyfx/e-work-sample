@@ -8,7 +8,7 @@ function view() {
         m('h1', 'My texts'),
         searchBox(),
         m('ul', [
-            textItemVM.results.map(function(text) {
+            textItemVM.searchResult.map(function(text) {
                 return m('li', text.title());
             })
         ]),
@@ -18,7 +18,7 @@ function view() {
 
 function searchBox() {
     return m('input', {
-        onchange: m.withAttr('value', textItemVM.searchText),
+        onchange: m.withAttr('value', textItemVM.search),
         value: textItemVM.searchText(),
         type: 'search',
         placeholder: 'Search'
