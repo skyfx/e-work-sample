@@ -64,9 +64,7 @@ gulp.task('browserify', function browserifyMe(done) {
 gulp.task('styles', function styles() {
 
     return gulp.src('src/main/front-end/styles/*.css')
-        .pipe($.changed('.tmp/styles', { extension: '.css' }))
         .pipe(gulp.dest('.tmp/styles'))
-        .pipe($.if('*.css', $.csso()))
         .pipe(gulp.dest('src/main/resources/static/styles'))
         .pipe($.size({ title: 'styles' }));
 });
