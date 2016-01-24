@@ -8,7 +8,7 @@ function view(vm) {
         searchBox(vm),
         m('ul', [
             vm.searchResult.map(function(item) {
-                return m('li', [
+                return m('li', { key: item.id }, [
                     m('a[href="/edit/' + item.id + '"]', { config: m.route }, item.title())
                 ]);
             })
