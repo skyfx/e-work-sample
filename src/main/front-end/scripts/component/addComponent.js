@@ -1,4 +1,5 @@
 'use strict';
+var m  = require('mithril');
 var addController = require('../controller/addController');
 var addView = require('../view/addView');
 
@@ -7,4 +8,4 @@ var component = {
     view: addView
 };
 
-module.exports = component;
+module.exports = m.component(component, { title: 'New' });

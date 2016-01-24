@@ -1,10 +1,10 @@
 'use strict';
 var m = require('mithril');
 
-function view(vm) {
+function view(vm, data) {
 
     return m('main', [
-        m('h1', 'Add text'),
+        m('h1', data.title),
         m('input', {
             onchange: m.withAttr('value', vm.newItem.title),
             value: vm.newItem.title(),
