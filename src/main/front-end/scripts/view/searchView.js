@@ -1,14 +1,13 @@
 'use strict';
 var m = require('mithril');
-var textItemVM = require('../view-model/textItemVM');
 
-function view() {
+function view(vm) {
 
     return m('main', [
         m('h1', 'My texts'),
-        searchBox(),
+        searchBox(vm),
         m('ul', [
-            textItemVM.searchResult.map(function(item) {
+            vm.searchResult.map(function(item) {
                 return m('li', [
                     m('a[href="/edit/' + item.id + '"]', { config: m.route }, item.title())
                 ]);
@@ -18,10 +17,10 @@ function view() {
     ]);
 }
 
-function searchBox() {
+function searchBox(vm) {
     return m('input', {
-        onchange: m.withAttr('value', textItemVM.search),
-        value: textItemVM.searchText(),
+        onchange: m.withAttr('value', vm.search),
+        value: vm.searchText(),
         type: 'search',
         placeholder: 'Search'
     });
