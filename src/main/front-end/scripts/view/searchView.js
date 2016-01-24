@@ -13,7 +13,7 @@ function view(vm) {
                 ]);
             })
         ]),
-        m('a[href="/add"]', { config: m.route }, 'Add')
+        m('a[href="/add"]', { config: m.route, class: 'button' }, 'Add')
     ]);
 }
 
