@@ -8,32 +8,63 @@ body {
 }
 
 main {
-    width: 300px;
+    height: 95%;
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
+}
+
+main > * {
+    height: 2.5em;
+    width: 90%;
+    margin: 0.3125em 0 0.3125em 0;
 }
 
 h1 {
     text-align: center;
+    height: 1.5em;
+}
+
+ul {
+    height: auto;
+    overflow: auto;
+}
+
+li {
+    word-break: break-all;
+    width: 90%;
+}
+
+input, textarea {
+    box-sizing: border-box;
+    height: 4em;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border: 2px inset;
+}
+
+textarea {
+    height: 18em;
+    resize: none;
 }
 
 button, .button {
-    padding: 10px;
+    padding: 0.625em;
     color: #fff;
     background: #000000;
-    font-size: 16px;
+    font-size: 1em;
+    margin-top: auto;
 }
 
 button {
     cursor: pointer;
     font-family: Arial, sans-serif;
     border: none;
-    height: 40px;
 }
 
 .button {
-    height: 20px;
+    height: 1.25em;
+    padding: 0.625em 0 0.625em 0;
     text-align: center;
     text-decoration: none;
 }
