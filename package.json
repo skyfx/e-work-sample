@@ -17,7 +17,7 @@
   "author": "Chiel Kas",
   "homepage": "https://e-work-sample.herokuapp.com/",
   "devDependencies": {
-    "browser-sync": "^2.6.5",
+    "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",
     "del": "^2.1.0",
     "gulp": "^3.8.11",
