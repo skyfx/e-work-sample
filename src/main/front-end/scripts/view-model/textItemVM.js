@@ -11,10 +11,6 @@ var vm = {
     newItem: new TextItem()
 };
 
-vm.init = function() {
-    //noting yet
-};
-
 vm.search = function(searchText) {
 
     vm.searchText(searchText);
@@ -38,10 +34,25 @@ vm.resetNewItem = function() {
 };
 
 vm.add = function() {
+
     if (vm.newItem.title() && vm.newItem.body()) {
-        vm.items.push(vm.newItem);
+
+        var index = _(vm.items).map('id').indexOf(vm.newItem.id);
+
+        if (index === -1) {
+            //new item
+            vm.items.push(vm.newItem);
+        }else {
+            //update item
+            vm.items[index] = vm.newItem;
+        }
+
         m.route('/');
     }
+};
+
+vm.selectCurrentItem = function(itemId) {
+    vm.newItem = _.find(vm.items, { id: itemId });
 };
 
 module.exports = vm;

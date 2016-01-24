@@ -6,16 +6,7 @@ describe('textItemVM', function() {
     var vm = require('./textItemVM');
 
     beforeEach(function() {
-        vm.init();
         vm.items.length = 0;
-    });
-
-    describe('init',  function() {
-        it('should reset state on init', function() {
-
-            vm.init();
-
-        });
     });
 
     describe('add', function() {
@@ -26,12 +17,17 @@ describe('textItemVM', function() {
 
         it('should add', function() {
 
-            vm.newItem.title('my title');
-            vm.newItem.body('my body');
+            var expectedTitle = 'my title';
+            var expectedBody = 'my body';
+
+            vm.newItem.title(expectedTitle);
+            vm.newItem.body(expectedBody);
 
             vm.add();
 
             expect(vm.items.length).toBe(1);
+            expect(vm.items[0].title()).toBe(expectedTitle);
+            expect(vm.items[0].body()).toBe(expectedBody);
         });
 
         it('should not add then text item is empty', function() {
@@ -39,6 +35,40 @@ describe('textItemVM', function() {
             vm.add();
 
             expect(vm.items.length).toBe(0);
+        });
+
+        it('should not add an existing item', function() {
+
+            var item = new TextItem({ title: 'Some title', body: 'Some body' });
+            vm.items.push(item);
+
+            vm.newItem = item;
+
+            vm.add();
+
+            expect(vm.items.length).toBe(1);
+        });
+
+        it('should update an existing item', function() {
+
+            var item = new TextItem({ title: 'Some title', body: 'Some body' });
+            vm.items.push(item);
+
+            var expectedTitle = 'new title';
+            var expectedBody = 'new body';
+
+            var updatedItem = new TextItem();
+            updatedItem.id = item.id;
+            updatedItem.title(expectedTitle);
+            updatedItem.body(expectedBody);
+
+            vm.newItem = updatedItem;
+
+            vm.add();
+
+            expect(vm.items.length).toBe(1);
+            expect(vm.items[0].title()).toBe(expectedTitle);
+            expect(vm.items[0].body()).toBe(expectedBody);
         });
     });
 
@@ -83,6 +113,20 @@ describe('textItemVM', function() {
             vm.search('match');
 
             expect(vm.searchResult.length).toBe(2);
+        });
+    });
+
+    describe('selectCurrentItem', function() {
+
+        it('should select the current item by id', function() {
+            var item1 = new TextItem();
+            var item2 = new TextItem();
+
+            vm.items.push(item1, item2);
+
+            vm.selectCurrentItem(item2.id);
+
+            expect(vm.newItem.id).toBe(item2.id);
         });
     });
 });

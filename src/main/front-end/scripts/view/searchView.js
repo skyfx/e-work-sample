@@ -8,11 +8,13 @@ function view() {
         m('h1', 'My texts'),
         searchBox(),
         m('ul', [
-            textItemVM.searchResult.map(function(text) {
-                return m('li', text.title());
+            textItemVM.searchResult.map(function(item) {
+                return m('li', [
+                    m('a[href="/edit/' + item.id + '"]', { config: m.route }, item.title())
+                ]);
             })
         ]),
-        m('a[href=\'/add\']', { config: m.route }, 'Add')
+        m('a[href="/add"]', { config: m.route }, 'Add')
     ]);
 }
 

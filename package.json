@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "lodash": "^4.0.0",
-    "mithril": "^0.2.2-rc.1"
+    "mithril": "^0.2.2-rc.1",
+    "node-uuid": "^1.4.7"
   }
 }
