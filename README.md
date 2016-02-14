@@ -3,6 +3,8 @@ E-company work sample
 
 [![Build Status](https://travis-ci.org/skyfx/e-work-sample.svg?branch=master)](https://travis-ci.org/skyfx/e-work-sample)
 
+Latest version is running at [e-work-sample.herokuapp.com](https://e-work-sample.herokuapp.com/?/)
+
 This application provides the following functionality:
 
   * [ ] Provides a web page to add a text with a title without formatting
@@ -16,6 +18,8 @@ Environment
 
   * Java 8 (1.8.0_66 oracle)
   * Maven 3.3 (3.3.9)
+  * node v5.1.1 (npm v3.3.12)
+  * Gulp & Browserify
   * A browser (Chrome 46.0.2490.86 (64-bit), OS X 10.11.1)
 
 Run from source
@@ -24,6 +28,11 @@ Run from source
   * clone repo
   * ```mvn clean spring-boot:run```
   * open browser (http://localhost:8080)
+
+Run front end separately with live reload
+ 
+  * ```npm run start```
+  * open browser (http://localhost:3000)
 
 Build war
 ---------
