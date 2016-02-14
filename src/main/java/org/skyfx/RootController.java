@@ -1,14 +1,18 @@
 package org.skyfx;
 
-import org.springframework.stereotype.Controller;
+import org.skyfx.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class RootController {
+
+    @Autowired
+    HelloService helloService;
 
     @RequestMapping("/sayHello")
     String index() {
-        return "Hello World!!!";
+        return helloService.sayHello();
     }
-
 }
