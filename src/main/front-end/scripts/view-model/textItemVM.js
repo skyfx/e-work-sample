@@ -48,7 +48,7 @@ vm.add = function() {
                     data: vm.newItem,
                     type: TextItem
                 })
-                .then(function(item) {
+                .then(function() {
                     m.route('/');
                 });
         }else {
