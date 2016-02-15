@@ -44,11 +44,11 @@ vm.add = function() {
 
             m.request({
                     method: 'POST',
-                    url: '/rest/text-items',
+                    url: 'https://e-work-sample.herokuapp.com/rest/text-items',
                     data: vm.newItem,
                     type: TextItem
                 })
-                .then(function(item) {
+                .then(function() {
                     m.route('/');
                 });
         }else {

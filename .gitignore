@@ -4,5 +4,7 @@ target
 src/main/resources/static
 .tmp
 Softwaredeveloperworksample.pdf
-
 npm-debug.log
+e-work-sample/www/*
+e-work-sample/platforms/*
+e-work-sample/plugins/*

@@ -7,7 +7,7 @@ var controller = function() {
 
     m.request({
         method: 'GET',
-        url: '/rest/text-items',
+        url: 'https://e-work-sample.herokuapp.com/rest/text-items',
         type: TextItem
     }).then(function(result) {
         textItemVM.items = result;
