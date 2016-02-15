@@ -23,13 +23,13 @@ gulp.task('jshint', function jshint() {
 
 gulp.task('test', function test(done) {
 
-    var server = new KarmaServer({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true,
-        browsers: ['PhantomJS']
-    }, done);
-
-    server.start();
+    //var server = new KarmaServer({
+    //    configFile: __dirname + '/karma.conf.js',
+    //    singleRun: true,
+    //    browsers: ['PhantomJS']
+    //}, done);
+    //
+    //server.start();
 });
 
 gulp.task('copy', function copy() {
