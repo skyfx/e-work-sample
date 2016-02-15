@@ -41,13 +41,21 @@ vm.add = function() {
 
         if (index === -1) {
             //new item
-            vm.items.push(vm.newItem);
+
+            m.request({
+                    method: 'POST',
+                    url: '/rest/text-items',
+                    data: vm.newItem,
+                    type: TextItem
+                })
+                .then(function(item) {
+                    m.route('/');
+                });
         }else {
             //update item
             vm.items[index] = vm.newItem;
+            m.route('/');
         }
-
-        m.route('/');
     }
 };
 

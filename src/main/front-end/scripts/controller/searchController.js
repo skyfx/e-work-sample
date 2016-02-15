@@ -1,8 +1,19 @@
 'use strict';
+var m = require('mithril');
+var TextItem = require('../model/TextItem');
 var textItemVM = require('../view-model/textItemVM');
 
 var controller = function() {
-    textItemVM.search(textItemVM.searchText());
+
+    m.request({
+        method: 'GET',
+        url: '/rest/text-items',
+        type: TextItem
+    }).then(function(result) {
+        textItemVM.items = result;
+        textItemVM.search(textItemVM.searchText());
+    });
+
     return textItemVM;
 };
 

@@ -86,8 +86,9 @@ gulp.task('serve', ['browserify', 'styles'], function serve() {
     browserSync({
         notify: false,
         logPrefix: '[BROWSER-SYNC]',
-        server: ['.tmp', 'src/main/front-end'],
-        open: false
+        serveStatic: ['.tmp', 'src/main/front-end'],
+        open: false,
+        proxy: 'localhost:8080'
     });
 
     gulp.watch(['src/main/front-end/**/*.html'], reload);
